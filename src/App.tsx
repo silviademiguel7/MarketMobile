@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./App.scss";
-import { Filter } from "./components/Filter";
+import { CardItem } from "./components/cardItem/CardItem";
+import { Filter } from "./components/filter/Filter";
 
-interface Mobiles {
+export interface Mobile {
   brand: string;
   id: string;
   imgUrl: string;
@@ -23,7 +24,7 @@ const App: React.FC = () => {
     onLoad();
   }, []);
 
-  const [mobiles, setMobiles] = useState<Mobiles[]>([]);
+  const [mobiles, setMobiles] = useState<Mobile[]>([]);
   return (
     <div className="App-wrapper">
       <header className="header">Phone Market</header>
@@ -32,22 +33,7 @@ const App: React.FC = () => {
         <div className="results-container">
           <ul className="results-list">
             {mobiles.map((mobile) => {
-              return (
-                <li className="item-list" key={mobile.id}>
-                  <div className="card">
-                    <div className="card__image">
-                      <img src={mobile.imgUrl} />
-                    </div>
-                    <div className="card__data">
-                      <p className="card__data-brand">Marca: {mobile.brand}</p>
-                      <p className="card__data-model">Modelo: {mobile.model}</p>
-                      <p className="card__data-price">
-                        Precio: {mobile.price}€
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              );
+              return <CardItem mobile={mobile} />;
             })}
           </ul>
         </div>

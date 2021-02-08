@@ -1,0 +1,21 @@
+.card {
+  width: 260px;
+  padding: 5px;
+  background-color: rgb(248, 245, 245);
+}
+.card__data {
+  padding: 20px;
+  text-align: left;
+  font-size: 22px;
+  border-radius: 4%;
+  background-color: rgb(212, 212, 240);
+  @media all and (min-width: 640px) {
+    font-size: 20px;
+  }
+}
+.card__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
