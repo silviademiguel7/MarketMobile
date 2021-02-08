@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./App.scss";
-import { CardItem } from "./components/cardItem/CardItem";
+
+import { CardList } from "./components/cardList/CardList";
 import { Filter } from "./components/filter/Filter";
 
 export interface Mobile {
@@ -30,13 +31,7 @@ const App: React.FC = () => {
       <header className="header">Phone Market</header>
       <main className="main-content">
         <Filter />
-        <div className="results-container">
-          <ul className="results-list">
-            {mobiles.map((mobile) => {
-              return <CardItem mobile={mobile} />;
-            })}
-          </ul>
-        </div>
+        <CardList mobiles={mobiles}></CardList>
       </main>
     </div>
   );

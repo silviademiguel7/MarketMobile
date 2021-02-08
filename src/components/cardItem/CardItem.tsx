@@ -11,7 +11,7 @@ export const CardItem: React.FC<Props> = ({ mobile }) => {
     <li className="item-list" key={mobile.id}>
       <div className="card">
         <div className="card__image">
-          <img src={mobile.imgUrl} />
+          <img src={mobile.imgUrl} alt="imagen de un mobile" />
         </div>
         <div className="card__data">
           <p className="card__data-brand">Marca: {mobile.brand}</p>
