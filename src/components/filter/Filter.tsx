@@ -1,7 +1,11 @@
 import React from "react";
 import "./Filter.scss";
 
-export const Filter: React.FC = () => {
+interface Props {
+  onFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  filterValue: string;
+}
+export const Filter: React.FC<Props> = ({ onFilterChange, filterValue }) => {
   return (
     <>
       <div className="search-container__filterInput">
@@ -12,6 +16,8 @@ export const Filter: React.FC = () => {
           name="inputText"
           id="inputText"
           placeholder="Filtra por marca o modelo"
+          onChange={onFilterChange}
+          value={filterValue}
         />
       </div>
     </>

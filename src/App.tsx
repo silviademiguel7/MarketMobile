@@ -21,20 +21,26 @@ const App: React.FC = () => {
     setMobiles(data);
     console.log(data);
   };
+
   useEffect(() => {
     onLoad();
   }, []);
 
   const [mobiles, setMobiles] = useState<Mobile[]>([]);
+  const [filterValue, setFilterValue] = useState("");
   return (
     <div className="App-wrapper">
       <header className="header">Phone Market</header>
       <main className="main-content">
-        <Filter />
-        <CardList mobiles={mobiles}></CardList>
+        <Filter onFilterChange={handleFilterChange} filterValue={filterValue} />
+        <CardList mobiles={mobiles} filterValue={filterValue}></CardList>
       </main>
     </div>
   );
+
+  function handleFilterChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setFilterValue(event.target.value);
+  }
 };
 
 export default App;
