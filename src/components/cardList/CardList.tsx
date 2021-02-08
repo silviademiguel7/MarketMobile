@@ -1,5 +1,6 @@
 import React from "react";
-import { Mobile } from "../../App";
+import { Mobile } from "../../Landing";
+
 import { CardItem } from "../cardItem/CardItem";
 import "./CardList.scss";
 
