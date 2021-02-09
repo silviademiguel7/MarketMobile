@@ -20,8 +20,8 @@ export const CardList: React.FC<Props> = ({ mobiles, filterValue }) => {
               filterValue === ""
             );
           })
-          .map((mobile) => {
-            return <CardItem mobile={mobile} />;
+          .map((mobile, index) => {
+            return <CardItem mobile={mobile} key={index} />;
           })}
       </ul>
     </div>
