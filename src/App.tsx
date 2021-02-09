@@ -6,15 +6,18 @@ import {
   Switch,
   Route,
   Redirect,
+  Link,
 } from "react-router-dom";
 import { Landing } from "./Landing";
 
 const App: React.FC = () => {
   return (
     <div className="App-wrapper">
-      <header className="header">Phone Market</header>
-      <main className="main-content">
-        <Router>
+      <Router>
+        <Link to="/mobiles">
+          <header className="header">Phone Market</header>
+        </Link>
+        <main className="main-content">
           <Switch>
             <Route path="/" exact>
               <Redirect to="/mobiles" />
@@ -26,8 +29,8 @@ const App: React.FC = () => {
               <>Detalle</>
             </Route>
           </Switch>
-        </Router>
-      </main>
+        </main>
+      </Router>
     </div>
   );
 };
