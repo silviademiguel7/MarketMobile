@@ -9,6 +9,7 @@ import React from "react";
 import { Landing } from "../Landing";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 
 jest.mock("axios");
 
@@ -69,5 +70,22 @@ describe("al cargar la  Landing ", () => {
     const imagen = getAllByAltText("imagen de un mobile");
     expect(buscadorPlace).toBeDefined();
     expect(imagen).toHaveLength(5);
+  });
+
+  it("al buscar se listan los moviles que corresponden con la marca o modelo introducidos", async () => {
+    const { findByPlaceholderText, getAllByAltText, getByText } = render(
+      <BrowserRouter>
+        <Landing />
+      </BrowserRouter>
+    );
+    const buscadorPlace = await findByPlaceholderText(
+      "Filtra por marca o modelo"
+    );
+    userEvent.type(buscadorPlace, "marca3");
+
+    const imagen = getAllByAltText("imagen de un mobile");
+
+    expect(imagen).toHaveLength(1);
+    expect(getByText("Marca: marca3")).toBeDefined();
   });
 });
