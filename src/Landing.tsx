@@ -11,13 +11,12 @@ export interface Mobile {
   price: string;
 }
 
-export const Landing: React.FC = ({}) => {
+export const Landing: React.FC = () => {
   const onLoad = async () => {
     const { data } = await axios.get(
-      "https://front-test-api.herokuapp.com/api/product "
+      "https://front-test-api.herokuapp.com/api/product"
     );
     setMobiles(data);
-    console.log(data);
   };
 
   useEffect(() => {

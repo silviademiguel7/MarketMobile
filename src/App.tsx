@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Landing } from "./Landing";
 
 const App: React.FC = () => {
