@@ -1,10 +1,4 @@
-import {
-  findAllByAltText,
-  findAllByText,
-  findByText,
-  getAllByAltText,
-  render,
-} from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
 import { Landing } from "../Landing";
 import axios from "axios";
@@ -13,7 +7,7 @@ import userEvent from "@testing-library/user-event";
 
 jest.mock("axios");
 
-describe("al cargar la  Landing ", () => {
+describe("al cargar la  Landing", () => {
   beforeEach(() => {
     const data = {
       data: [
@@ -55,7 +49,7 @@ describe("al cargar la  Landing ", () => {
       ],
     };
 
-    axios.get.mockImplementationOnce(() => Promise.resolve(data));
+    jest.spyOn(axios, "get").mockResolvedValueOnce(data);
   });
 
   it("se muestra el listado de los moviles", async () => {
