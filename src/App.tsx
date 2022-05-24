@@ -9,6 +9,7 @@ import {
   Link,
 } from "react-router-dom";
 import { Landing } from "./Landing";
+import Detalle from "./Detalle";
 
 const App: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ const App: React.FC = () => {
               <Landing />
             </Route>
             <Route path="/mobiles/:id">
-              <>Detalle</>
+              <Detalle />
             </Route>
           </Switch>
         </main>
